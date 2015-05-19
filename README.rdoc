@@ -24,6 +24,7 @@ This gem depends on and thus requires 'aws-sdk', so an explicit "require 'aws-sd
   
   instance = Aws::EC2::Instance.new('i-abc1234')
   value = instance.tag_hash['MyTag']
+  puts instance.running? # will not throw exception if instance does not exist (returns true or false)
 
   # note no Aws::AutoScaling::Group class exists in aws-sdk
   group = Aws::AutoScaling::Group.new('my_auto_scaling_group')

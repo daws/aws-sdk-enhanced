@@ -1,5 +1,8 @@
 = aws-sdk-enhanced
 
+== Version 2.0.1
+* Implements #running? on Aws::EC2::Instance
+
 == Version 2.0.0
 * Implements TagHashable module
 * Applies TagHashable to Aws::EC2::Instance
