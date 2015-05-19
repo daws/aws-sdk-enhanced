@@ -1,0 +1,30 @@
+= aws-sdk-enhanced
+
+Extends aws-sdk--roughly following a decorator pattern--to make it easier to use.
+
+Major versions of this gem are compatible with the corresponding major version of aws-sdk. Note you may use any version of aws-sdk you wish so long as the major version is compatible (you may use aws-sdk version 2.1.23 with aws-sdk-enhanced version 2.0.1).
+
+Currently, this library simply provides a convenience class for retrieving auto scaling groups by name and allows convenient access of specific tags on EC2 instance and auto scaling groups.
+
+== Installation
+
+Add the following to your Gemfile:
+
+  gem 'aws-sdk-enhanced', '~> 2.0', require: 'aws-sdk/enhanced'
+
+Alternatively, with aws-sdk-enhanced installed:
+
+  require 'aws-sdk/enhanced'
+
+This gem depends on and thus requires 'aws-sdk', so an explicit "require 'aws-sdk'" is not necessary.
+
+== Synopsis
+
+  require 'aws-sdk/enhanced'
+  
+  instance = Aws::EC2::Instance.new('i-abc1234')
+  value = instance.tag_hash['MyTag']
+
+  # note no Aws::AutoScaling::Group class exists in aws-sdk
+  group = Aws::AutoScaling::Group.new('my_auto_scaling_group')
+  value = group.tag_hash['MyTag']
